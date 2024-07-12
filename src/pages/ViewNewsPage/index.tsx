@@ -1,14 +1,12 @@
 import { useParams } from 'react-router-dom';
-import DetailsNewsView from '../../views/DetailsNewsView';
-import { getArticleById } from '../../lib/utils/newsStorage';
+import DetailsNewsContainer from '../../containers/DetailsNewsContainer';
 
 const ViewNewsPage = () => {
 	const { id } = useParams();
-	console.log(id);
-    const article = getArticleById(id)
+
 	return (
 		<div>
-			<DetailsNewsView article={article} />
+			<DetailsNewsContainer id={id} />
 		</div>
 	);
 };
