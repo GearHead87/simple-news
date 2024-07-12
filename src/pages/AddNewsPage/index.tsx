@@ -1,15 +1,18 @@
+import { FormEvent } from 'react';
 import AddNewsFrom from '../../components/shared/Forms/AddNewsFrom';
-import { saveArticle } from '../../lib/utils/newsStorage';
+import { saveArticle } from '../../lib/restAPI';
+// import { saveArticle } from '../../lib/utils/newsStorage';
 
 const AddNewsPage = () => {
-	const handleSubmit = (e: React.FC<HTMLFormElement>) => {
+	const handleSubmit = (e: React.SyntheticEvent<FormEvent>) => {
 		e.preventDefault();
 		const id = Math.floor(Math.random() * 10000 + 1);
 		const form = e.target;
-		const title = form.title.value;
-		const content = form.content.value;
-        console.log(title, content);
-		saveArticle({ id, title, content });
+		const title = form.title?.value;
+		const content = form.content?.value;
+		console.log(title, content);
+		saveArticle(title, content);
+		// saveArticle({ id, title, content });
 	};
 	return (
 		<div>
