@@ -1,9 +1,11 @@
 // import { deleteArticleById, getArticleById } from '../../lib/utils/newsStorage';
 import { useEffect, useState } from 'react';
-import { getArticleById } from '../../lib/restAPI';
+import { deleteArticleById, getArticleById } from '../../lib/restAPI';
 import DetailsNewsView from '../../views/DetailsNewsView';
+import { useNavigate } from 'react-router-dom';
 
 const DetailsNewsContainer = ({ id }) => {
+	const navigate = useNavigate();
 	const [article, setArticle] = useState({});
 
 	useEffect(() => {
@@ -18,7 +20,10 @@ const DetailsNewsContainer = ({ id }) => {
 		getArticle();
 	}, [id]);
 
-	const handleDelete = () => console.log(id);
+	const handleDelete = async () => {
+		await deleteArticleById(id);
+		navigate('/');
+	};
 
 	return (
 		<div>

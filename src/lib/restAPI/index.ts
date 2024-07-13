@@ -1,4 +1,4 @@
-import { get, push, ref, set } from 'firebase/database';
+import { get, push, ref, remove, set } from 'firebase/database';
 import { db } from '../config';
 
 // type ArticleProps = {
@@ -47,4 +47,9 @@ export function updateArticleById(title: string, content: string, id: string) {
 		title: title,
 		content: content,
 	});
+}
+
+export async function deleteArticleById(id: string) {
+	const dbRef = ref(db, '/news/' + id);
+	await remove(dbRef);
 }

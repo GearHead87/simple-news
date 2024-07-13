@@ -1,33 +1,29 @@
-const UpdateNewsForm = ({handleSubmit, article}) => {
+import FormButton from '../../base/FormButton';
+import FormInput from '../../base/FormInput';
+import FormTextArea from '../../base/FormTextArea';
+
+const UpdateNewsForm = ({ handleSubmit, article }) => {
 	return (
 		<div>
 			<form
 				onSubmit={handleSubmit}
 				className="flex flex-col w-[700px] justify-center items-center mx-auto p-4 border rounded shadow-lg"
 			>
-				<label htmlFor="title" className="mb-2 text-lg font-medium">
-					Title
-				</label>
-				<input
-					defaultValue={article.title}
-					type="text"
+				<FormInput
+					label="title"
 					name="title"
-					className="mb-4 p-2 border border-gray-300 rounded w-full"
+					placeholder="title"
+					type="text"
+					defaultValue={article.title}
 				/>
-				<label htmlFor="content" className="mb-2 text-lg font-medium">
-					Content
-				</label>
-				<textarea
-					defaultValue={article.content}
+				<FormTextArea
+					label="Content"
+					placeholder="Content"
 					name="content"
-					className="mb-4 p-2 border border-gray-300 rounded w-full h-32"
+					defaultValue={article.content}
 				/>
-				<button
-					type="submit"
-					className="btn bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-				>
-					Update News
-				</button>
+
+				<FormButton type="submit" label="Update News"></FormButton>
 			</form>
 		</div>
 	);
