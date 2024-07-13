@@ -4,6 +4,7 @@ import Layout from '../components/shared/Layout';
 import HomePage from '../pages/HomePage';
 import AddNewsPage from '../pages/AddNewsPage';
 import ViewNewsPage from '../pages/ViewNewsPage';
+import UpdateNewsPage from '../pages/UpdateNewsPage';
 
 export const router = createBrowserRouter([
 	{
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
 			{
 				path: 'news/:id',
 				element: <ViewNewsPage />,
+			},
+			{
+				path: 'update-news/:id',
+				element: <UpdateNewsPage />,
 			},
 		],
 	},

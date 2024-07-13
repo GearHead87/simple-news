@@ -1,4 +1,4 @@
-import { get, push, ref } from 'firebase/database';
+import { get, push, ref, set } from 'firebase/database';
 import { db } from '../config';
 
 // type ArticleProps = {
@@ -26,10 +26,25 @@ export async function getAllArticles() {
 				id: currentId,
 			};
 		});
-		return tempData
+		return tempData;
 	} else {
 		return [];
 	}
 }
 
-export function getArticleById(id) {}
+export async function getArticleById(id: string) {
+	const dbRef = ref(db, 'news/' + id);
+	const snapshot = await get(dbRef);
+	if (snapshot.exists()) {
+		const targetObject = snapshot.val();
+		return { ...targetObject, id };
+	}
+}
+
+export function updateArticleById(title: string, content: string, id: string) {
+	const newDocRef = ref(db, '/news/' + id);
+	set(newDocRef, {
+		title: title,
+		content: content,
+	});
+}

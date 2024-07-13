@@ -1,5 +1,5 @@
 import { FormEvent } from 'react';
-import AddNewsFrom from '../../components/shared/Forms/AddNewsFrom';
+import AddNewsFrom from '../../components/shared/Forms/AddNewsForm';
 import { saveArticle } from '../../lib/restAPI';
 // import { saveArticle } from '../../lib/utils/newsStorage';
 
@@ -12,7 +12,6 @@ const AddNewsPage = () => {
 		const content = form.content?.value;
 		console.log(title, content);
 		saveArticle(title, content);
-		// saveArticle({ id, title, content });
 	};
 	return (
 		<div>
