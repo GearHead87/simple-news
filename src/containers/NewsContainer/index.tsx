@@ -1,7 +1,6 @@
-// import { getAllArticles } from "../../lib/utils/newsStorage";
 import { useEffect, useState } from 'react';
-import { getAllArticles } from '../../lib/restAPI';
 import NewsView from '../../views/NewsView';
+import { getAllArticles } from '../../hooks/useGetAllArticles';
 
 const NewsContainer = () => {
 	const [articles, setArticles] = useState([]);
@@ -10,6 +9,7 @@ const NewsContainer = () => {
 		const getArticles = async () => {
 			try {
 				const res = await getAllArticles();
+				console.log(res);
 				setArticles(res);
 			} catch (e) {
 				console.log(e);

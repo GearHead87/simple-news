@@ -14,13 +14,13 @@ const UpdateNewsForm = ({ handleSubmit, article }) => {
 					name="title"
 					placeholder="title"
 					type="text"
-					defaultValue={article.title}
+					defaultValue={article?.title}
 				/>
 				<FormTextArea
 					label="Content"
 					placeholder="Content"
 					name="content"
-					defaultValue={article.content}
+					defaultValue={article?.content}
 				/>
 
 				<FormButton type="submit" label="Update News"></FormButton>

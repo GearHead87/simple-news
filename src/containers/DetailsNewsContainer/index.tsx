@@ -1,8 +1,8 @@
-// import { deleteArticleById, getArticleById } from '../../lib/utils/newsStorage';
 import { useEffect, useState } from 'react';
-import { deleteArticleById, getArticleById } from '../../lib/restAPI';
 import DetailsNewsView from '../../views/DetailsNewsView';
 import { useNavigate } from 'react-router-dom';
+import { getArticleById } from '../../hooks/useGetArticleById';
+import { deleteArticleById } from '../../hooks/useDeleteArticleById';
 
 const DetailsNewsContainer = ({ id }) => {
 	const navigate = useNavigate();

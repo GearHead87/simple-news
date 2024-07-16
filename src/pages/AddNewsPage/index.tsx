@@ -1,7 +1,7 @@
 import { FormEvent } from 'react';
 import AddNewsFrom from '../../components/shared/Forms/AddNewsForm';
-import { saveArticle } from '../../lib/restAPI';
 import { useNavigate } from 'react-router-dom';
+import { saveArticle } from '../../hooks/useSaveArticle';
 
 const AddNewsPage = () => {
 	const navigate = useNavigate();

@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import UpdateNewsForm from '../../components/shared/Forms/UpdateNewsForm';
-import { getArticleById, updateArticleById } from '../../lib/restAPI';
 import { FormEvent, useEffect, useState } from 'react';
+import { getArticleById } from '../../hooks/useGetArticleById';
+import { updateArticleById } from '../../hooks/useUpdateArticleById';
 
 const UpdateNewsPage = () => {
 	const { id } = useParams();
