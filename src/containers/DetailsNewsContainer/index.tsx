@@ -1,14 +1,15 @@
 import { useNavigate } from 'react-router-dom';
-import { deleteArticleById } from '../../hooks/useDeleteArticleById';
+import useDeleteArticleById from '../../hooks/useDeleteArticleById';
 import useGetArticleById from '../../hooks/useGetArticleById';
 import DetailsNewsView from '../../views/DetailsNewsView';
 
-const DetailsNewsContainer = ({ id }) => {
+const DetailsNewsContainer = ({ id }: { id: string }) => {
 	const navigate = useNavigate();
-	const { data: article, isLoading } = useGetArticleById(id);
+	const { data: article } = useGetArticleById(id);
+	const { deleteArticleById } = useDeleteArticleById();
 
-	const handleDelete = async () => {
-		await deleteArticleById(id);
+	const handleDelete = () => {
+		deleteArticleById(id);
 		navigate('/');
 	};
 

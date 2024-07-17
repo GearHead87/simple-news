@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import DetailsNewsContainer from '../../containers/DetailsNewsContainer';
 
-const ViewNewsPage = () => {
+const DetailsNewsPage = () => {
 	const { id } = useParams();
 
 	return (
@@ -11,4 +11,4 @@ const ViewNewsPage = () => {
 	);
 };
 
-export default ViewNewsPage;
+export default DetailsNewsPage;
