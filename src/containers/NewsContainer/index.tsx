@@ -1,22 +1,8 @@
-import { useEffect, useState } from 'react';
 import NewsView from '../../views/NewsView';
-import { getAllArticles } from '../../hooks/useGetAllArticles';
+import { useGetAllArticles } from '../../hooks/useGetAllArticles';
 
 const NewsContainer = () => {
-	const [articles, setArticles] = useState([]);
-
-	useEffect(() => {
-		const getArticles = async () => {
-			try {
-				const res = await getAllArticles();
-				console.log(res);
-				setArticles(res);
-			} catch (e) {
-				console.log(e);
-			}
-		};
-		getArticles();
-	}, []);
+	const { articles, isLoading } = useGetAllArticles();
 
 	console.log(articles);
 
