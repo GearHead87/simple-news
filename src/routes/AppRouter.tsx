@@ -5,6 +5,7 @@ import HomePage from '../pages/HomePage';
 import AddNewsPage from '../pages/AddNewsPage';
 import DetailsNewsPage from '../pages/DetailsNewsPage';
 import UpdateNewsPage from '../pages/UpdateNewsPage';
+import SignUpPage from '../pages/SignUpPage';
 
 export const router = createBrowserRouter([
 	{
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
 			{
 				path: 'login',
 				element: <LoginPage />,
+			},
+			{
+				path: 'signup',
+				element: <SignUpPage />,
 			},
 			{
 				path: 'Add-news',

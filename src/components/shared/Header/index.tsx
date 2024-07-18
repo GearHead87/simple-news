@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../../contexts/AuthContext';
 
 const Header = () => {
+	const { user, signout } = useAuth();
+	const handleSignout = () => {
+		signout((res) => {
+			console.log(res);
+		});
+	};
 	const NavLinks = (
 		<>
 			<li>
@@ -50,7 +57,13 @@ const Header = () => {
 				<ul className="menu menu-horizontal px-1">{NavLinks}</ul>
 			</div>
 			<div className="navbar-end">
-				{/* <a className="btn">Button</a> */}
+				{user ? (
+					<button onClick={() => handleSignout()} className="btn">
+						Logout
+					</button>
+				) : (
+					<></>
+				)}
 			</div>
 		</div>
 	);
