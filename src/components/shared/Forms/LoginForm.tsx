@@ -1,7 +1,7 @@
 import FormButton from '../../base/FormButton';
 import FormInput from '../../base/FormInput';
 
-const LoginForm = ({ handleSubmit }) => {
+const LoginForm = ({ handleSubmit, children }) => {
 	return (
 		<div className="hero bg-base-200 min-h-screen">
 			<div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -15,6 +15,7 @@ const LoginForm = ({ handleSubmit }) => {
 					/>
 
 					<FormButton type="submit" label="Login"></FormButton>
+					{children}
 				</form>
 			</div>
 		</div>

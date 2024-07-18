@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginForm from '../../components/shared/Forms/LoginForm';
 import { useAuth } from '../../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 
 const SignUpPage = () => {
 	const { signup } = useAuth();
@@ -16,7 +17,14 @@ const SignUpPage = () => {
 	};
 	return (
 		<div>
-			<LoginForm handleSubmit={handleSubmit} />
+			<LoginForm handleSubmit={handleSubmit}>
+				<p>
+					Dont have an Account?{' '}
+					<Link to={'/signup'} className="text-blue-200">
+						Sign Up
+					</Link>
+				</p>
+			</LoginForm>
 		</div>
 	);
 };
