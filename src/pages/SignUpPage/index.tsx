@@ -17,11 +17,11 @@ const SignUpPage = () => {
 	};
 	return (
 		<div>
-			<LoginForm handleSubmit={handleSubmit}>
+			<LoginForm label={'Sign Up'} handleSubmit={handleSubmit}>
 				<p>
-					Dont have an Account?{' '}
-					<Link to={'/signup'} className="text-blue-200">
-						Sign Up
+					Already have an Account?{' '}
+					<Link to={'/login'} className="text-blue-200">
+						Login
 					</Link>
 				</p>
 			</LoginForm>

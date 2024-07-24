@@ -17,7 +17,7 @@ const LoginPage = () => {
 	};
 	return (
 		<div>
-			<LoginForm handleSubmit={handleSubmit}>
+			<LoginForm label={'Login'} handleSubmit={handleSubmit}>
 				<p>
 					Dont have an Account?{' '}
 					<Link to={'/signup'} className="text-blue-200">
