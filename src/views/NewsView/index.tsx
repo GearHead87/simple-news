@@ -8,6 +8,10 @@ const NewsView = ({ articles }) => {
 					key={article.id}
 					className="max-w-lg mx-auto space-y-10 border mt-10 p-10 rounded-lg"
 				>
+					<img
+						src={article.image}
+						className="max-w-sm mx-auto rounded-lg object-cover"
+					/>
 					<h2 className="text-2xl">
 						<Link to={`/news/${article.id}`}>{article.title}</Link>
 					</h2>

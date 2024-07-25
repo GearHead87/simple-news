@@ -1,8 +1,11 @@
+import { cn } from '../../../lib/utils';
+
 interface FormInputProps {
 	label: string;
 	name: string;
 	type: string;
 	placeholder: string;
+	className?: string;
 	defaultValue?: string;
 }
 const FormInput: React.FC<FormInputProps> = ({
@@ -11,6 +14,7 @@ const FormInput: React.FC<FormInputProps> = ({
 	name,
 	defaultValue,
 	placeholder,
+	className,
 	...rest
 }) => {
 	return (
@@ -22,7 +26,7 @@ const FormInput: React.FC<FormInputProps> = ({
 				type={type}
 				name={name}
 				placeholder={placeholder}
-				className="input input-bordered"
+				className={cn('input input-bordered', className)}
 				defaultValue={defaultValue}
 				{...rest}
 				required

@@ -22,6 +22,13 @@ const UpdateNewsForm = ({ handleSubmit, article }) => {
 					name="content"
 					defaultValue={article?.content}
 				/>
+				<FormInput
+					label="Cover Picture"
+					name="image"
+					placeholder="image"
+					type="file"
+					className="file-input file-input-bordered w-full max-w-xs"
+				/>
 
 				<FormButton type="submit" label="Update News"></FormButton>
 			</form>

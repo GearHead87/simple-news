@@ -4,6 +4,7 @@ import { makeAPIRequest } from '../lib/restAPI';
 type ArticleProp = {
 	title: string;
 	content: string;
+	image: string;
 };
 
 const useSaveArticle = () => {
@@ -22,10 +23,9 @@ const useSaveArticle = () => {
 		},
 	});
 
-	const saveArticle = async (title: string, content: string) => {
-		console.log('I am hitsss');
+	const saveArticle = async (title: string, content: string, image: string) => {
 		try {
-			await mutateAsync({ title, content });
+			await mutateAsync({ title, content, image });
 		} catch (e) {
 			console.log(e);
 		}
