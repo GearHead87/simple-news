@@ -3,6 +3,7 @@ import AddNewsFrom from '../../components/shared/Forms/AddNewsForm';
 import { useNavigate } from 'react-router-dom';
 import useSaveArticle from '../../hooks/useSaveArticle';
 import { imageUpload } from '../../lib/utils';
+import { toast } from 'react-toastify';
 
 const AddNewsPage = () => {
 	const navigate = useNavigate();
@@ -18,6 +19,7 @@ const AddNewsPage = () => {
 		console.log(image);
 		if (image) {
 			await saveArticle(title, content, image);
+			toast.success('News Added Successfully');
 			navigate('/');
 		}
 	};

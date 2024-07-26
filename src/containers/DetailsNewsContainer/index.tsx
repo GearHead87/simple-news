@@ -22,6 +22,7 @@ const DetailsNewsContainer = ({ id }: { id: string }) => {
 			});
 		} else {
 			deleteArticleById(id);
+			toast.success('Article Deleted');
 			navigate('/');
 		}
 	};
