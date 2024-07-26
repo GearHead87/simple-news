@@ -14,7 +14,7 @@ const DetailsNewsView = ({
 	return (
 		<div>
 			<div className="max-w-lg mx-auto space-y-10 border mt-10 p-10 rounded-lg">
-				<img src={article.image} className="max-w-sm mx-auto rounded-lg object-cover" />
+				<img src={article?.image} className="max-w-sm mx-auto rounded-lg object-cover" />
 				<h2 className="text-2xl">{article?.title}</h2>
 				<h2>{article?.content}</h2>
 				<div className="flex items-center justify-between">

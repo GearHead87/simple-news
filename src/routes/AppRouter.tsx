@@ -6,6 +6,7 @@ import AddNewsPage from '../pages/AddNewsPage';
 import DetailsNewsPage from '../pages/DetailsNewsPage';
 import UpdateNewsPage from '../pages/UpdateNewsPage';
 import SignUpPage from '../pages/SignUpPage';
+import PrivateRoute from './PrivateRoute';
 
 export const router = createBrowserRouter([
 	{
@@ -26,7 +27,11 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: 'Add-news',
-				element: <AddNewsPage />,
+				element: (
+					<PrivateRoute>
+						<AddNewsPage />
+					</PrivateRoute>
+				),
 			},
 			{
 				path: 'news/:id',
@@ -34,7 +39,11 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: 'update-news/:id',
-				element: <UpdateNewsPage />,
+				element: (
+					<PrivateRoute>
+						<UpdateNewsPage />
+					</PrivateRoute>
+				),
 			},
 		],
 	},

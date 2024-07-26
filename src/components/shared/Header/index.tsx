@@ -14,9 +14,6 @@ const Header = () => {
 				<Link to={'/'}>Home</Link>
 			</li>
 			<li>
-				<Link to={'/login'}>Login</Link>
-			</li>
-			<li>
 				<Link to={'/add-news'}>Add News</Link>
 			</li>
 		</>
@@ -62,7 +59,11 @@ const Header = () => {
 						Logout
 					</button>
 				) : (
-					<></>
+					<>
+						<button className="btn">
+							<Link to={'/login'}>Login</Link>
+						</button>
+					</>
 				)}
 			</div>
 		</div>
