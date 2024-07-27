@@ -1,9 +1,9 @@
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useAuth } from '../../contexts/AuthContext';
 import useDeleteArticleById from '../../hooks/useDeleteArticleById';
 import useGetArticleById from '../../hooks/useGetArticleById';
 import DetailsNewsView from '../../views/DetailsNewsView';
-import { toast } from 'react-toastify';
 
 const DetailsNewsContainer = ({ id }: { id: string }) => {
 	const navigate = useNavigate();

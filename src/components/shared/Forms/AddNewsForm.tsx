@@ -2,7 +2,11 @@ import FormButton from '../../base/FormButton';
 import FormInput from '../../base/FormInput';
 import FormTextArea from '../../base/FormTextArea';
 
-const AddNewsFrom = ({ handleSubmit }) => {
+interface AddNewsFormProps {
+	handleSubmit: () => void;
+}
+
+const AddNewsFrom = ({ handleSubmit }: AddNewsFormProps) => {
 	return (
 		<div>
 			<form

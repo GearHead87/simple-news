@@ -13,7 +13,7 @@ const useSaveArticle = () => {
 	const { mutateAsync, isPending } = useMutation({
 		mutationKey: ['add-article'],
 		mutationFn: async (newArticle: ArticleProp) => {
-			const res = await makeAPIRequest<void>('POST', '/news.json', newArticle);
+			const res = await makeAPIRequest<ArticleProp>('POST', '/news.json', newArticle);
 			return res;
 		},
 		onSuccess: () => {

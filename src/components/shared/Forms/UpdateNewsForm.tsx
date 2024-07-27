@@ -1,8 +1,17 @@
+import React from 'react';
 import FormButton from '../../base/FormButton';
 import FormInput from '../../base/FormInput';
 import FormTextArea from '../../base/FormTextArea';
+interface UpdateNewsFormProps {
+	handleSubmit: (e: React.SyntheticEvent) => void;
+	article: {
+		title: string;
+		content: string;
+		image: string;
+	};
+}
 
-const UpdateNewsForm = ({ handleSubmit, article }) => {
+const UpdateNewsForm: React.FC<UpdateNewsFormProps> = ({ handleSubmit, article }) => {
 	return (
 		<div>
 			<form

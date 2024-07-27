@@ -12,7 +12,7 @@ const UpdateNewsPage = () => {
 	const { data: article } = useGetArticleById(id);
 	const { updateArticleById } = useUpdateArticleById(id);
 
-	const handleSubmit = async (e: React.SyntheticEvent<FormEvent>) => {
+	const handleSubmit = async (e: React.SyntheticEvent) => {
 		e.preventDefault();
 		const form = e.target;
 		const title = form.title?.value;

@@ -8,17 +8,12 @@ type ArticleProp = {
 	image: string;
 };
 
-// export async function updateArticleById(title: string, content: string, id: string) {
-// 	const res = await makeAPIRequest<void>('PUT', `/news/${id}.json`, { title, content, image });
-// 	return res;
-// }
-
 const useUpdateArticleById = (id: string) => {
 	const queryClient = useQueryClient();
 	const { mutateAsync, isPending } = useMutation({
 		mutationKey: ['update-article'],
 		mutationFn: async (article: ArticleProp) => {
-			const res = await makeAPIRequest<void>('PUT', `/news/${id}.json`, article);
+			const res = await makeAPIRequest<ArticleProp>('PUT', `/news/${id}.json`, article);
 			return res;
 		},
 		onSuccess: () => {

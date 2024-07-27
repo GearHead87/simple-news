@@ -4,11 +4,13 @@ import DetailsNewsContainer from '../../containers/DetailsNewsContainer';
 const DetailsNewsPage = () => {
 	const { id } = useParams();
 
-	return (
-		<div>
-			<DetailsNewsContainer id={id} />
-		</div>
-	);
+	if (id) {
+		return (
+			<div>
+				<DetailsNewsContainer id={id} />
+			</div>
+		);
+	}
 };
 
 export default DetailsNewsPage;

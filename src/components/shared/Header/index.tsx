@@ -1,20 +1,18 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthContext';
+import profilePic from '/profilePic.svg';
 
 const Header = () => {
 	const { user, signout } = useAuth();
 	const handleSignout = () => {
-		signout((res) => {
-			console.log(res);
+		signout(() => {
+			// console.log(res);
 		});
 	};
 	const NavLinks = (
 		<>
 			<li>
 				<Link to={'/'}>Home</Link>
-			</li>
-			<li>
-				<Link to={'/add-news'}>Add News</Link>
 			</li>
 		</>
 	);
@@ -55,9 +53,31 @@ const Header = () => {
 			</div>
 			<div className="navbar-end">
 				{user ? (
-					<button onClick={() => handleSignout()} className="btn">
-						Logout
-					</button>
+					<div className="dropdown dropdown-end">
+						<div tabIndex={0} role="button" className="btn m-1">
+							<img
+								src={profilePic}
+								alt="Default Profile Picture"
+								className="size-10 object-cover"
+							/>
+						</div>
+						<ul
+							tabIndex={0}
+							className="dropdown-content menu bg-base-100 rounded-box z-[1] space-y-2 w-52 p-2 shadow"
+						>
+							<li>
+								<Link to={'/add-news'} className="btn">
+									{' '}
+									Add News
+								</Link>
+							</li>
+							<li>
+								<button onClick={() => handleSignout()} className="btn">
+									Logout
+								</button>
+							</li>
+						</ul>
+					</div>
 				) : (
 					<>
 						<button className="btn">

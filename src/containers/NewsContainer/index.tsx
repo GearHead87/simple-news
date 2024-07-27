@@ -1,10 +1,9 @@
-import NewsView from '../../views/NewsView';
 import { useGetAllArticles } from '../../hooks/useGetAllArticles';
+import NewsView from '../../views/NewsView';
 
 const NewsContainer = () => {
-	const { articles, isLoading } = useGetAllArticles();
+	const { articles } = useGetAllArticles();
 
-	console.log(articles);
 
 	return (
 		<div>

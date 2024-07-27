@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const firebaseConfig = {
 	apiKey: import.meta.env.VITE_API_APIKEY,

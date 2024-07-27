@@ -5,8 +5,13 @@ const DetailsNewsView = ({
 	article,
 	handleDelete,
 }: {
-	article: unknown[];
-	handleDelete: Function;
+	article: {
+		id: string;
+		title: string;
+		content: string;
+		image: string;
+	};
+	handleDelete: (id: string) => void;
 }) => {
 	const vote = useArticlesVoteStore((state) => state.vote);
 	const increaseVote = useArticlesVoteStore((state) => state.increaseVote);
@@ -22,7 +27,10 @@ const DetailsNewsView = ({
 						<Link to={`/update-news/${article?.id}`} className="btn btn-accent">
 							Edit
 						</Link>
-						<button className="btn btn-accent" onClick={() => handleDelete(article.id)}>
+						<button
+							className="btn btn-accent"
+							onClick={() => handleDelete(article?.id)}
+						>
 							delete
 						</button>
 					</div>
