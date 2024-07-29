@@ -2553,6 +2553,11 @@ react-router@6.24.1:
   dependencies:
     "@remix-run/router" "1.17.1"
 
+react-text-to-speech@^0.16.2:
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/react-text-to-speech/-/react-text-to-speech-0.16.2.tgz#aebeb185003576c7c46a669d4250c3a59a909a4a"
+  integrity sha512-Aof7nWJ7dlcJ0jT10ijprMLn0YsykB2gfU3p/bpqB1fnX3nJgnvRlG5LkPiz2ieG/fmamHUAAGUSXBAXIBaNwA==
+
 react-toastify@^10.0.5:
   version "10.0.5"
   resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-10.0.5.tgz#6b8f8386060c5c856239f3036d1e76874ce3bd1e"

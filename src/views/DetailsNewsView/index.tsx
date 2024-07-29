@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useArticlesVoteStore } from '../../store/store';
+import AudioPlayer from '../../components/shared/AudioPlayer';
 
 const DetailsNewsView = ({
 	article,
@@ -43,6 +44,10 @@ const DetailsNewsView = ({
 							Downvote
 						</button>
 					</div>
+				</div>
+				<div>
+					<h2 className="text-2xl mb-2">Audio Player</h2>
+					<AudioPlayer content={article?.content} />
 				</div>
 			</div>
 		</div>
