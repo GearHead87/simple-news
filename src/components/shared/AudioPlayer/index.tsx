@@ -8,7 +8,7 @@ export default function AudioPlayer({ content }: AudioPlayerProps) {
 	const {
 		// Text, // Component that returns the modified text property
 		speechStatus, // String that stores current speech status
-		isInQueue, // Boolean that stores whether a speech utterance is either being spoken or present in queue
+		// isInQueue, // Boolean that stores whether a speech utterance is either being spoken or present in queue
 		start, // Function to start the speech or put it in queue
 		pause, // Function to pause the speech
 		stop, // Function to stop the speech or remove it from queue
