@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { makeAPIRequest } from '../lib/restAPI';
+import { db, makeAPIRequest } from '../lib/restAPI';
 
 type ArticleProp = {
 	// id: string;
@@ -13,7 +13,8 @@ const useUpdateArticleById = (id: string) => {
 	const { mutateAsync, isPending } = useMutation({
 		mutationKey: ['update-article'],
 		mutationFn: async (article: ArticleProp) => {
-			const res = await makeAPIRequest<ArticleProp>('PUT', `/news/${id}.json`, article);
+			// const res = await makeAPIRequest<ArticleProp>('PUT', `/news/${id}.json`, article);
+			const res = await db.update(`/news/${id}.json`, article);
 			return res;
 		},
 		onSuccess: () => {

@@ -1,8 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import { makeAPIRequest } from '../lib/restAPI';
+import { db, makeAPIRequest } from '../lib/restAPI';
 
 export async function fetchAllArticles() {
-	const res = await makeAPIRequest<void>('GET', '/news.json');
+	// const res = await makeAPIRequest<void>('GET', '/news.json');
+
+	const res = await db.read('/news.json');
+
 	const tempData = Object.keys(res).map((currentId) => {
 		return {
 			...res[currentId],
@@ -19,5 +22,3 @@ export const useGetAllArticles = () => {
 	});
 	return { articles, isLoading };
 };
-
-

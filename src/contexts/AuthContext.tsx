@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { Auth } from '@antmorelabs-packages/tggt-firebase';
 
 const firebaseConfig = {
 	apiKey: import.meta.env.VITE_API_APIKEY,
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
+const auth = Auth(firebaseConfig.apiKey);
 
 interface AuthContextType {
 	user: string | null;
@@ -23,17 +25,22 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
 	const signin = async (email: string, password: string, callback: VoidFunction) => {
 		try {
-			const response = await axios.post(
-				`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${firebaseConfig.apiKey}`,
-				{
-					email,
-					password,
-					returnSecureToken: true,
-				}
-			);
-			console.log(response.data);
-			setUser(response.data.idToken);
-			localStorage.setItem('authToken', response.data.idToken);
+			// const response = await axios.post(
+			// 	`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${firebaseConfig.apiKey}`,
+			// 	{
+			// 		email,
+			// 		password,
+			// 		returnSecureToken: true,
+			// 	}
+			// );
+			// console.log(response.data);
+			// setUser(response.data.idToken);
+			// localStorage.setItem('authToken', response.data.idToken);
+
+			const idToken = await auth.signin(email, password);
+			// console.log(idToken);
+			setUser(idToken);
+			localStorage.setItem('authToken', idToken);
 			callback();
 		} catch (error) {
 			console.error('Sign-in error', error);
@@ -42,17 +49,22 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
 	const signup = async (email: string, password: string, callback: VoidFunction) => {
 		try {
-			const response = await axios.post(
-				`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${firebaseConfig.apiKey}`,
-				{
-					email,
-					password,
-					returnSecureToken: true,
-				}
-			);
-			console.log(response.data);
-			setUser(response.data.idToken);
-			localStorage.setItem('authToken', response.data.idToken);
+			// const response = await axios.post(
+			// 	`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${firebaseConfig.apiKey}`,
+			// 	{
+			// 		email,
+			// 		password,
+			// 		returnSecureToken: true,
+			// 	}
+			// );
+			// console.log(response.data);
+			// setUser(response.data.idToken);
+			// localStorage.setItem('authToken', response.data.idToken);
+
+			const idToken = await auth.signup(email, password);
+			setUser(idToken);
+			localStorage.setItem('authToken', idToken);
+
 			callback();
 		} catch (error) {
 			console.error('Sign-up error', error);
@@ -74,13 +86,22 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
 	const validateToken = async (token: string) => {
 		try {
-			const response = await axios.post(
-				`https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${firebaseConfig.apiKey}`,
-				{
-					idToken: token,
-				}
-			);
-			if (response.data.users.length > 0) {
+			// const response = await axios.post(
+			// 	`https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${firebaseConfig.apiKey}`,
+			// 	{
+			// 		idToken: token,
+			// 	}
+			// );
+			// if (response.data.users.length > 0) {
+			// 	setUser(token);
+			// } else {
+			// 	setUser(null);
+			// 	localStorage.removeItem('authToken');
+			// }
+
+			const responseUser = await auth.validateToken(token);
+			console.log(responseUser);
+			if (responseUser) {
 				setUser(token);
 			} else {
 				setUser(null);
