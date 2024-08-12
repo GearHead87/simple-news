@@ -15,10 +15,10 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.24"
 
-"@antmorelabs-packages/tggt-firebase@^0.0.6":
-  version "0.0.6"
-  resolved "https://gitlab.com/api/v4/projects/60668103/packages/npm/@antmorelabs-packages/tggt-firebase/-/@antmorelabs-packages/tggt-firebase-0.0.6.tgz#6546357cf48970d67ae04e8f4a5cc9be38f0d0eb"
-  integrity sha1-ZUY1fPSJcNZ64E6PSlzJvjjw0Os=
+"@antmorelabs-packages/tggt-firebase@^0.0.10":
+  version "0.0.10"
+  resolved "https://gitlab.com/api/v4/projects/60668103/packages/npm/@antmorelabs-packages/tggt-firebase/-/@antmorelabs-packages/tggt-firebase-0.0.10.tgz#4e58faf6ee36f2de80d6057768433e4cac3cfea4"
+  integrity sha1-Tlj69u428t6A1gV3aEM+TKw8/qQ=
 
 "@babel/code-frame@^7.24.7":
   version "7.24.7"
