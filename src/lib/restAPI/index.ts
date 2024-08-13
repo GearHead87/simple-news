@@ -2,7 +2,6 @@ import { Database } from '@antmorelabs-packages/tggt-firebase';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { API_BASE_URL } from '../config';
 
-
 const APIClient: AxiosInstance = axios.create({
 	baseURL: API_BASE_URL,
 });
@@ -25,7 +24,7 @@ async function makeAPIRequest<T>(
 
 	return response.data;
 }
-export const db = Database(API_BASE_URL, "");
+export const db = Database(API_BASE_URL);
 
 export { APIClient, makeAPIRequest };
 
