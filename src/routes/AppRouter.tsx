@@ -7,6 +7,8 @@ import DetailsNewsPage from '../pages/DetailsNewsPage';
 import UpdateNewsPage from '../pages/UpdateNewsPage';
 import SignUpPage from '../pages/SignUpPage';
 import PrivateRoute from './PrivateRoute';
+import FirebaseTestPage from '../pages/FirebaseTestPage';
+import PackageTestPage from '../pages/PackageTestPage';
 
 export const router = createBrowserRouter([
 	{
@@ -44,6 +46,14 @@ export const router = createBrowserRouter([
 						<UpdateNewsPage />
 					</PrivateRoute>
 				),
+			},
+			{
+				path: '/firebase',
+				element: <FirebaseTestPage />,
+			},
+			{
+				path: '/packagetest',
+				element: <PackageTestPage />,
 			},
 		],
 	},

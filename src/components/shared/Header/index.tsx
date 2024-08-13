@@ -14,6 +14,12 @@ const Header = () => {
 			<li>
 				<Link to={'/'}>Home</Link>
 			</li>
+			<li>
+				<Link to={'/firebase'}>Firebase</Link>
+			</li>
+			<li>
+				<Link to={'/packagetest'}>Package Test</Link>
+			</li>
 		</>
 	);
 
