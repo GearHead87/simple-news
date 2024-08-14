@@ -1,4 +1,10 @@
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import {
+	GithubAuthProvider,
+	GoogleAuthProvider,
+	signInWithEmailAndPassword,
+	signInWithPopup,
+	signOut,
+} from 'firebase/auth';
 import {
 	ref as StorageRef,
 	deleteObject,
@@ -12,6 +18,9 @@ import { useAuth } from '../../contexts/AuthContext';
 import { auth, storage, database } from '../../lib/config/firebaseConfig';
 import { ref as DatabaseRef, push } from 'firebase/database';
 
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
+
 const FirebaseTestPage = () => {
 	const { user } = useAuth();
 	const [itemList, setItemList] = useState([]);
@@ -22,6 +31,15 @@ const FirebaseTestPage = () => {
 	};
 	const handleSignout = async () => {
 		const res = await signOut(auth);
+		console.log(res);
+	};
+
+	const handleSignInWithGoogle = async () => {
+		const res = await signInWithPopup(auth, googleProvider);
+		console.log(res);
+	};
+	const handleSignInWithGithub = async () => {
+		const res = await signInWithPopup(auth, githubProvider);
 		console.log(res);
 	};
 
@@ -78,6 +96,12 @@ const FirebaseTestPage = () => {
 		<div>
 			<button onClick={handleSignIn} className="btn">
 				signin
+			</button>
+			<button onClick={handleSignInWithGoogle} className="btn">
+				Google Sign in
+			</button>
+			<button onClick={handleSignInWithGithub} className="btn">
+				Github Sign in
 			</button>
 			<button onClick={handleSignout} className="btn">
 				sign Out
