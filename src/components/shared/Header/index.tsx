@@ -20,6 +20,9 @@ const Header = () => {
 			<li>
 				<Link to={'/packagetest'}>Package Test</Link>
 			</li>
+			<li>
+				<Link to={'/battletest'}>Battle Package Test</Link>
+			</li>
 		</>
 	);
 

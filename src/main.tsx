@@ -8,17 +8,20 @@ import 'react-toastify/dist/ReactToastify.css';
 import { AuthProvider } from './contexts/AuthContext';
 import './index.css';
 import { router } from './routes/AppRouter.tsx';
+// import BattleContext from './contexts/BattleContext.tsx';
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<AuthProvider>
-			<QueryClientProvider client={queryClient}>
-				<ToastContainer position="top-right" />
-				<RouterProvider router={router} />
-				<ReactQueryDevtools initialIsOpen={false} />
-			</QueryClientProvider>
+			{/* <BattleContext> */}
+				<QueryClientProvider client={queryClient}>
+					<ToastContainer position="top-right" />
+					<RouterProvider router={router} />
+					<ReactQueryDevtools initialIsOpen={false} />
+				</QueryClientProvider>
+			{/* </BattleContext> */}
 		</AuthProvider>
 	</React.StrictMode>
 );

@@ -9,6 +9,8 @@ import SignUpPage from '../pages/SignUpPage';
 import PrivateRoute from './PrivateRoute';
 import FirebaseTestPage from '../pages/FirebaseTestPage';
 import PackageTestPage from '../pages/PackageTestPage';
+import BattleTestPage from '../pages/BattleTestPage';
+// import BattleContext from '../contexts/BattleContext';
 
 export const router = createBrowserRouter([
 	{
@@ -54,6 +56,10 @@ export const router = createBrowserRouter([
 			{
 				path: '/packagetest',
 				element: <PackageTestPage />,
+			},
+			{
+				path: '/battletest',
+				element: <BattleTestPage />,
 			},
 		],
 	},
