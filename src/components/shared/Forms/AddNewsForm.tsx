@@ -1,9 +1,10 @@
+import React from 'react';
 import FormButton from '../../base/FormButton';
 import FormInput from '../../base/FormInput';
 import FormTextArea from '../../base/FormTextArea';
 
 interface AddNewsFormProps {
-	handleSubmit: () => void;
+	handleSubmit: (e: React.FormEvent) => void;
 }
 
 const AddNewsFrom = ({ handleSubmit }: AddNewsFormProps) => {

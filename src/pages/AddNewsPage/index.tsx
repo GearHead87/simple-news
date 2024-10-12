@@ -9,7 +9,7 @@ const AddNewsPage = () => {
 	const navigate = useNavigate();
 	const { saveArticle } = useSaveArticle();
 
-	const handleSubmit = async (e: React.SyntheticEvent<FormEvent>) => {
+	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		const form = e.target;
 		const title = form.title?.value;

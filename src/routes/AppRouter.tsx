@@ -10,6 +10,7 @@ import PrivateRoute from './PrivateRoute';
 import FirebaseTestPage from '../pages/FirebaseTestPage';
 import PackageTestPage from '../pages/PackageTestPage';
 import BattleTestPage from '../pages/BattleTestPage';
+import ZodTestingPage from '../pages/ZodTestingPage';
 // import BattleContext from '../contexts/BattleContext';
 
 export const router = createBrowserRouter([
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
 				path: '/battletest',
 				element: <BattleTestPage />,
 			},
+			{
+				path: '/zodtest',
+				element: <ZodTestingPage />
+			}
 		],
 	},
 ]);

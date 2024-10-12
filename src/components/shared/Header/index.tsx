@@ -23,6 +23,9 @@ const Header = () => {
 			<li>
 				<Link to={'/battletest'}>Battle Package Test</Link>
 			</li>
+			<li>
+				<Link to={'/zodtest'}>Zod Test Package</Link>
+			</li>
 		</>
 	);
 
