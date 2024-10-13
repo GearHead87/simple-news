@@ -1,20 +1,25 @@
 import { z } from 'zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-type FormFields = {
-	email: string;
-	password: string;
-};
+const schema = z.object({
+	email: z.string().email(),
+	password: z.string().min(8),
+});
+
+type FormFields = z.infer<typeof schema>;
 
 const ZodTestingPage = () => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors, isSubmitting },
-	} = useForm<FormFields>();
+	} = useForm<FormFields>({
+		resolver: zodResolver(schema),
+	});
 
 	const onSubmit: SubmitHandler<FormFields> = async (data) => {
-		await new Promise((resolve) => setTimeout(resolve, 1000))
+		await new Promise((resolve) => setTimeout(resolve, 1000));
 		console.log(data);
 	};
 
@@ -25,27 +30,19 @@ const ZodTestingPage = () => {
 				onSubmit={handleSubmit(onSubmit)}
 			>
 				<input
-					{...(register('email', { required: "this is needed" }))}
+					{...register('email')}
 					type="text"
 					placeholder="Email"
 				/>
 				{errors.email && <div>{errors.email.message}</div>}
 				<input
-					{...register('password', {
-						required: true,
-						minLength: {
-							value: 8,
-							message: 'password must be 8 or more',
-						},
-					})}
+					{...register('password')}
 					type="password"
 					placeholder="password"
 				/>
 				{errors.password && <div>{errors.password.message}</div>}
 				<button disabled={isSubmitting} type="submit" className="btn">
-					{
-						isSubmitting ? 'Loading..' : "Submit"
-					}
+					{isSubmitting ? 'Loading..' : 'Submit'}
 				</button>
 			</form>
 		</div>
